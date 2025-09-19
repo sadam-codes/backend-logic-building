@@ -42,6 +42,8 @@ export class AuthService {
     if (!isPasswordValid) {
       throw new BadRequestException('Invalid email or password');
     }
+    // jwt is header.payload.signature
+
     const payload = { id: user.id, email: user.email };
     const token = this.jwtService.sign(payload);
 
